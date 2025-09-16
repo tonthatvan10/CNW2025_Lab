@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        .image-container {
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 500px;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes gentleMove {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .image-container img {
+            animation: gentleMove 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="../images/1080x2244-Wallpaper-203.jpg" alt="Ảnh minh họa">
+    </div>
+</body>
+</html>

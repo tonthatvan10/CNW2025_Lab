@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form 4</title>
+</head>
+<body>
+  <input list="colors" id="colorSelect" placeholder="Ví dụ: red, blue, tomato...">
+
+  <datalist id="colors">
+    <option value="white">Default (White)</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="yellow">Yellow</option>
+    <option value="purple">Purple</option>
+    <option value="lightblue">Light Blue</option>
+    <option value="lightgreen">Light Green</option>
+    <option value="lightpink">Light Pink</option>
+    <option value="lightyellow">Light Yellow</option>
+    <option value="lightgray">Light Gray</option>
+  </datalist>
+  <input type="button" onclick="changeBackgroundColor()" value="OK">
+
+  <script>
+    function changeBackgroundColor(){
+      const colorSelect = document.getElementById('colorSelect');
+      let selectedColor = colorSelect.value.trim();
+
+      if(!CSS.supports("color", selectedColor)){
+          selectedColor = "white";
+      }
+
+      document.body.style.backgroundColor = selectedColor;
+    }
+  </script>
+</body>
+</html>

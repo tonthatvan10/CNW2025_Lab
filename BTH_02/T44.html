@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: blueviolet;
+        }
+        input {
+            height: 35px;
+            width: 200px;
+        }
+        select {
+            height: 40px;
+        }
+        button {
+            height: 40px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            document.f1.textBox.focus();
+        }
+
+        function selectIndex(){
+            document.f1.SelectOption.selectedIndex = document.f1.textBox.value;
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="f1">
+        <select name="SelectOption" id="">
+            <option value="">Index 0</option>
+            <option value="">Index 1</option>
+            <option value="">Index 2</option>
+            <option value="">Index 3</option>
+        </select>
+        <input type="text" name="textBox" id="" placeholder="Nhập số index (0-3)">
+        <button type="button" onclick="selectIndex()">click here</button>
+    </form>
+</body>
+</html>

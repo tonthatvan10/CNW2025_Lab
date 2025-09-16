@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 2</title>
+</head>
+<body bgcolor="lightblue">
+    <h2 align="center" style="color: red;">EXAMPLE FOR CREATING FORM</h2>
+    <form action="">
+        <table border="0" width="100%">
+            <tr>
+                <td width="25%"></td>
+                <td width="10%">
+                    <label for="textBox">Text box:</label>
+                </td>
+                <td width="30%">
+                    <input type="text" name="textBox" size="45">
+                </td>
+                <td width="10%"></td>
+                <td width="25%"></td>
+            </tr>
+            <tr>
+                <td width="25%"></td>
+                <td width="10%">
+                    <label for="textArea">Text Area:</label>
+                </td>
+                <td width="30%">
+                    <textarea name="textArea" cols="42"></textarea>
+                </td>
+                <td width="10%"></td>
+                <td width="25%"></td>
+            </tr>
+            <tr>
+                <td width="25%"></td>
+                <td width="10%">
+                    <label for="fileBox">File Box:</label>
+                </td>
+                <td width="30%">
+                    <input type="text" id="filePath" size="45" readonly placeholder="File path ...">
+                    <input type="file" name="" id="fileInput" hidden>
+                </td>
+                <td width="10%">
+                    <button type="button" onclick="openFileDialog()">Browser</button>
+                </td>
+                <td width="25%"></td>
+            </tr>
+            <tr>
+                <td width="25%"></td>
+                <td width="10%">
+                     <input type="radio" name="radioBtn" value=""> Radio button
+                </td>
+                <td width="30%">
+                </td>
+                <td width="10%"></td>
+                <td width="25%"></td>
+            </tr>   
+            <tr>
+                <td width="25%"></td>
+                <td width="10%">
+                    <input type="checkbox" name="checkBox" value=""> Check box
+                </td>
+                <td width="30%">
+                </td>
+                <td width="10%"></td>
+                <td width="25%"></td>
+            </tr>
+            <tr>
+                <td width="25%"></td>
+                <td width="13%">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+                </td>
+                <td width="27%">
+                </td>
+                <td width="10%"></td>
+                <td width="25%"></td>
+            </tr>
+        </table>
+        
+    </form>
+
+    <script>
+        function openFileDialog() {
+            document.getElementById('fileInput').click();
+        }
+
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const filePath = document.getElementById('filePath');
+            if (this.files.length > 0) {
+                filePath.value = this.files[0].name;
+            } else {
+                filePath.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

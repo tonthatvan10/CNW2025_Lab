@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #profileInfo {
+            text-align: left;
+            font-size: 18px;
+            margin-top: 20px;
+            max-width: 400px;
+        }
+        .profile-container {
+            display: none;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+        #profileImage {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            padding-top: 30px;
+        }
+        .visible { 
+            display: flex;
+        }
+    </style>
+    <script>
+        function Age() {
+            const currentYear = new Date().getFullYear();
+            with(this) {
+                age = currentYear - birthYear;
+            }
+        }
+
+        function infor(name, birthYear, school, hometown, phoneNumber) {
+            this.name = name;
+            this.birthYear = birthYear;
+            this.school = school;
+            this.hometown = hometown;
+            this.phoneNumber = phoneNumber;
+            this.age = 0;
+            this.Age = Age;
+        }
+
+        var Junior = new infor("Tôn Thất Văn", 2005, "DUT", "Thành phố Huế, Việt Nam", "0329898850");
+        Junior.Age();
+
+        function ShowProfile() {
+            const container = document.querySelector(".profile-container");
+            const infoDiv = document.getElementById("profileInfo");
+            if (container && infoDiv) {
+                container.classList.add("visible"); // Hiển thị container
+                infoDiv.innerHTML = "";
+                infoDiv.innerHTML += "Họ và tên : " + Junior.name + "<br>";
+                infoDiv.innerHTML += "Năm sinh : " + Junior.birthYear + "<br>";
+                infoDiv.innerHTML += "Trường học : " + Junior.school + "<br>";
+                infoDiv.innerHTML += "Tuổi : " + Junior.age + "<br>";
+                infoDiv.innerHTML += "Quê quán : " + Junior.hometown + "<br>";
+                infoDiv.innerHTML += "Số điện thoại : " + Junior.phoneNumber + "<br>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>Thông tin cơ bản của mã số sinh viên 102230055</p>
+        <button type="button" onclick="ShowProfile()">Nhấn để xem </button>
+        <div class="profile-container">
+            <img id="profileImage" src="../BTH_02/images/Screenshot 2025-08-31 233825.png" alt="Profile Image">
+            <div id="profileInfo"></div>
+        </div>
+    </div>
+</body>
+</html>

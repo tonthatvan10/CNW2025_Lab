@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 5</title>
+    <script>
+        function toUpperCase(){
+            const textBox = document.getElementById("textBox");
+            textBox.value = textBox.value.toUpperCase();
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: aqua;
+        }
+        #textBox {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="textBox" onblur="toUpperCase()">
+</body>
+</html>

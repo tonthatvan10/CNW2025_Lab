@@ -1,0 +1,83 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>form 1</title>
+        <style>
+            body {
+                background-color: lightgreen;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                flex-direction: column;
+            }  
+            div {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            label {
+                width: 100px;
+                text-align: left;
+                margin-right: 10px;
+            }
+            input {
+                width: 200px;
+            }
+            button {
+                margin-right: 10px;
+            }
+        </style>
+        <script>
+            function checkLogin(event){
+
+                event.preventDefault();
+
+                const username = document.f1.textBox.value;
+                const password = document.f1.password.value;
+                if(isEmpty(username) && isEmpty(password)){
+                    showError("Vui lòng nhập đầy đủ thông tin trước khi đăng nhập!");
+                }
+                else if(isEmpty(username)){
+                    showError("Vui lòng nhập tài khoản!");
+                    document.f1.textBox.focus();
+                    return false
+                }
+                else if(isEmpty(password)){
+                    showError("Vui lòng nhập mật khẩu!")
+                    document.f1.password.focus()
+                    return false
+                }
+                else {
+                    showError("Đăng nhập thành công!")
+                }
+            }
+            function isEmpty(val){
+                return !val || val.trim() === "";
+            }
+            function showError(msg){
+                alert(msg);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form action="" name="f1">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="textBox">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password">
+            </div>
+            <div>
+                <button type="reset">Reset</button>
+                <button type="submit" onclick="checkLogin(event)">Sumit</button>
+            </div>
+        </form>
+        
+    </body>
+    </html>

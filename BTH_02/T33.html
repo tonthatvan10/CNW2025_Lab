@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: aquamarine;
+            height: 100vh;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            document.f1.textBox.focus();
+        }
+        function isUpper(char) {
+            let code = char.charCodeAt(0);
+            return code >= 65 && code <= 90;
+        }
+        function toggleCase(char) {
+            let code = char.charCodeAt(0);
+            if (isUpper(char)) {
+                return String.fromCharCode(code + 32);
+            } else if (code >= 97 && code <= 122) {
+                return String.fromCharCode(code - 32);
+            }
+            return "";
+        }
+
+        function toChange() {
+            let content = document.f1.textBox.value;
+            let result = "";
+            for (let i = 0; i < content.length; i++) {
+                result += toggleCase(content[i]);
+            }
+            document.f1.resultBox.value = result;
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="f1">  
+        <input type="text" name="textBox" onblur="toChange()">
+        <input type="text" name="resultBox">
+    </form>
+</body>
+</html>

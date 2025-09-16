@@ -1,0 +1,39 @@
+.caroufredsel_wrapper { width:99% !important;}
+/*list-carousel*/
+.list-carousel{margin:0 -10px;width:auto;position:relative;padding:0 0 20px;clear:both;}
+.list-carousel ul{margin:0;padding:0;list-style:none;display:block; cursor:pointer !important;left:10px;}
+.list-carousel li{text-align:center;padding:0;display:block;float:left;line-height:22px;margin-right:28px; position:relative;}
+.list-carousel li a {overflow: hidden;}
+.list-carousel li.first { margin-left:0 !important;}
+.list-carousel li img{ width:100%; }
+.list-carousel li img:hover{}
+.list-carousel.responsive{width:auto;}
+/*list-carousel-2*/
+.list-carousel-2{margin:0 -10px;width:auto;position:relative;padding:0 0 20px;clear:both;}
+.list-carousel-2 ul{margin:0;padding:0;list-style:none;display:block; cursor:pointer !important;left:10px;}
+.list-carousel-2 li{text-align:center;padding:0;display:block;float:left;line-height:22px;margin-right:32px;min-height:105px; position:relative;}
+.list-carousel-2 li.first { margin-left:0 !important;}
+.list-carousel-2 li img{ width:auto;}
+.list-carousel-2 li img:hover{}
+.list-carousel-2.responsive{width:auto; background:#e8e8e8; padding-bottom:15px; padding-top:15px;}
+/**/
+.control-div{text-align:center;height:24px;position:absolute;top:-42px;right:10px;padding-left:4px;width:54px}
+.control-div span{display:inline-block;width:19px;height:19px;cursor:pointer;text-indent:-1987em}
+#wd-prev,#wd-next{background:url(../img/front/next-prev.png) no-repeat scroll;display:block;position:absolute}
+#wd-prev{background-position:0 0;right:21px}
+#wd-prev:hover { background-position:0 -21px;}
+#wd-next{background-position:-21px 0;right:0}
+#wd-next:hover { background-position:-21px -21px;}
+.pager{float:left;width:300px;text-align:center;}
+.pager a{margin:0 5px;text-decoration:none;}
+.pager a.selected{text-decoration:underline;}
+.timer{background-color:#999;height:6px;width:0px;}
+
+.wd-title-gradient { background:url(../img/front/bg-gradient.png) repeat-x 0 bottom;width:100%;height:64px; position: absolute; left:0; bottom:0;}
+.wd-title-gradient a {display:block; color:#fff !important; font-weight:bold;font-size:15px;text-align: left;line-height:18px;padding-left: 10px;padding-top: 33px;padding-bottom: 0;}
+.wd-title-gradient a:hover {color:#075794;} 
+
+ /*@media (max-width: 1600px) {
+	.list-carousel li {width:170px !important;min-height:151px !important;}
+	}
+@media (max-width: 1200px) {}*/ 
