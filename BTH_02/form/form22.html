@@ -58,15 +58,24 @@
         function ShowProfile() {
             const container = document.querySelector(".profile-container");
             const infoDiv = document.getElementById("profileInfo");
+            const button = document.querySelector("button");
+
             if (container && infoDiv) {
-                container.classList.add("visible"); // Hiển thị container
-                infoDiv.innerHTML = "";
-                infoDiv.innerHTML += "Họ và tên : " + Junior.name + "<br>";
-                infoDiv.innerHTML += "Năm sinh : " + Junior.birthYear + "<br>";
-                infoDiv.innerHTML += "Trường học : " + Junior.school + "<br>";
-                infoDiv.innerHTML += "Tuổi : " + Junior.age + "<br>";
-                infoDiv.innerHTML += "Quê quán : " + Junior.hometown + "<br>";
-                infoDiv.innerHTML += "Số điện thoại : " + Junior.phoneNumber + "<br>";
+                if (container.classList.contains("visible")) {
+                    container.classList.remove("visible");
+                    infoDiv.innerHTML = "";
+                    button.textContent = "Nhấn để xem";
+                } else {
+                    container.classList.add("visible");
+                    infoDiv.innerHTML = "";
+                    infoDiv.innerHTML += "Họ và tên : " + Junior.name + "<br>";
+                    infoDiv.innerHTML += "Năm sinh : " + Junior.birthYear + "<br>";
+                    infoDiv.innerHTML += "Trường học : " + Junior.school + "<br>";
+                    infoDiv.innerHTML += "Tuổi : " + Junior.age + "<br>";
+                    infoDiv.innerHTML += "Quê quán : " + Junior.hometown + "<br>";
+                    infoDiv.innerHTML += "Số điện thoại : " + Junior.phoneNumber + "<br>";
+                    button.textContent = "Nhấn để đóng";
+                }
             }
         }
     </script>
@@ -76,7 +85,7 @@
         <p>Thông tin cơ bản của mã số sinh viên 102230055</p>
         <button type="button" onclick="ShowProfile()">Nhấn để xem </button>
         <div class="profile-container">
-            <img id="profileImage" src="../BTH_02/images/Screenshot 2025-08-31 233825.png" alt="Profile Image">
+            <img id="profileImage" src="../images/Screenshot 2025-08-31 233825.png" alt="Profile Image">
             <div id="profileInfo"></div>
         </div>
     </div>

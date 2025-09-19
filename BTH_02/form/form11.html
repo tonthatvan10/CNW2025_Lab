@@ -29,29 +29,35 @@
             button {
                 margin-right: 10px;
             }
+            [name="buttons"] {
+                justify-content: center;
+            }
         </style>
         <script>
             function checkLogin(event){
-
-                event.preventDefault();
-
                 const username = document.f1.textBox.value;
                 const password = document.f1.password.value;
                 if(isEmpty(username) && isEmpty(password)){
                     showError("Vui lòng nhập đầy đủ thông tin trước khi đăng nhập!");
+                    document.f1.textBox.focus();
+                    event.preventDefault();
+                    return false
                 }
                 else if(isEmpty(username)){
                     showError("Vui lòng nhập tài khoản!");
                     document.f1.textBox.focus();
+                    event.preventDefault();
                     return false
                 }
                 else if(isEmpty(password)){
                     showError("Vui lòng nhập mật khẩu!")
                     document.f1.password.focus()
+                    event.preventDefault();
                     return false
                 }
                 else {
                     showError("Đăng nhập thành công!")
+                    return true
                 }
             }
             function isEmpty(val){
@@ -64,7 +70,7 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form action="" name="f1">
+        <form action="" name="f1" onsubmit="return checkLogin(event)">
             <div>
                 <label for="username">Username</label>
                 <input type="text" name="textBox">
@@ -73,9 +79,9 @@
                 <label for="password">Password</label>
                 <input type="password" name="password">
             </div>
-            <div>
+            <div name="buttons">
+                <button type="submit">OK</button>
                 <button type="reset">Reset</button>
-                <button type="submit" onclick="checkLogin(event)">Sumit</button>
             </div>
         </form>
         

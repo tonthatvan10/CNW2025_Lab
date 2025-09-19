@@ -29,7 +29,15 @@
         }
 
         function selectIndex(){
-            document.f1.SelectOption.selectedIndex = document.f1.textBox.value;
+            let val = parseInt(document.f1.textBox.value);
+            let select = document.f1.SelectOption;
+
+            if (isNaN(val) || val < 0 || val > 3) {
+                select.selectedIndex = 0;
+                document.f1.textBox.value = ""; 
+            } else {
+                select.selectedIndex = val;
+            }
         }
     </script>
 </head>
