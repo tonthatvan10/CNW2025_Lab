@@ -20,6 +20,6 @@
 
         echo "Kết nối thành công";
         $link->close();
-    ?>
+    ?> 
 </body>
 </html>

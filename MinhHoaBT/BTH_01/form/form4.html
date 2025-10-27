@@ -4,35 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>form 4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .form-box {
+      width: 320px;
+      margin: 60px auto;
+      padding: 24px 28px 18px 28px;
+      border: 1px solid #bdbdbd;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 8px #bdbdbd33;
+      text-align: center;
+    }
+    input[list="colors"] {
+      padding: 6px 8px;
+      border: 1px solid #81d4fa; /* Slightly lighter blue than #90caf9 */
+      border-radius: 5px;
+      font-size: 15px;
+      width: 140px;
+      margin-right: 10px;
+    }
+    input[type="button"] {
+      background: #0288d1; /* Slightly different blue than #1976d2 */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 7px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    input[type="button"]:hover {
+      background: #0277bd; /* Slightly darker than #0288d1, adjusted from #1565c0 */
+    }
+    label {
+      display: block;
+      margin-bottom: 12px;
+      color: #0288d1; /* Matching the button's blue */
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <input list="colors" id="colorSelect" placeholder="Ví dụ: red, blue, tomato...">
-
-  <datalist id="colors">
-    <option value="white">Default (White)</option>
-    <option value="red">Red</option>
-    <option value="blue">Blue</option>
-    <option value="green">Green</option>
-    <option value="yellow">Yellow</option>
-    <option value="purple">Purple</option>
-    <option value="lightblue">Light Blue</option>
-    <option value="lightgreen">Light Green</option>
-    <option value="lightpink">Light Pink</option>
-    <option value="lightyellow">Light Yellow</option>
-    <option value="lightgray">Light Gray</option>
-  </datalist>
-  <input type="button" onclick="changeBackgroundColor()" value="OK">
-
+  <div class="form-box">
+    <label>Nhập tên màu hoặc chọn màu:</label>
+    <input list="colors" id="colorSelect" placeholder="Ví dụ: red, blue, tomato...">
+    <datalist id="colors">
+      <option value="white">Default (White)</option>
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="yellow">Yellow</option>
+      <option value="purple">Purple</option>
+      <option value="lightblue">Light Blue</option>
+      <option value="lightgreen">Light Green</option>
+      <option value="lightpink">Light Pink</option>
+      <option value="lightyellow">Light Yellow</option>
+      <option value="lightgray">Light Gray</option>
+    </datalist>
+    <input type="button" onclick="changeBackgroundColor()" value="OK">
+  </div>
   <script>
     function changeBackgroundColor(){
       const colorSelect = document.getElementById('colorSelect');
       let selectedColor = colorSelect.value.trim();
-
       if(!CSS.supports("color", selectedColor)){
           selectedColor = "white";
       }
-
       document.body.style.backgroundColor = selectedColor;
+      colorSelect.value = '';
     }
   </script>
 </body>

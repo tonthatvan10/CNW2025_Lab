@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>form 1</title>
+        <title>Login</title>
         <style>
             body {
                 background-color: lightgreen;
@@ -56,10 +56,11 @@
                     event.preventDefault();
                     return false
                 }
-                else {
-                    showError("Đăng nhập thành công!")
-                    return true
-                }
+                return true
+                // else {
+                //     showError("Đăng nhập thành công!")
+                //     return true
+                // }
             }
             function isEmpty(val){
                 return !val || val.trim() === "";
@@ -71,7 +72,7 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form action="" name="f1" onsubmit="return checkLogin(event)">
+        <form action="xuliLogin.php" name="f1" onsubmit="return checkLogin(event)" method="POST">
             <div>
                 <label for="username">Username</label>
                 <input type="text" name="textBox">

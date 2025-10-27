@@ -3,27 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chuyển đổi chữ hoa/thường</title>
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: aquamarine;
             height: 100vh;
+            background-color: aquamarine;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        .form-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px;
+            border: 1px solid #bdbdbd;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 8px #bdbdbd33;
+        }
+        .caption {
+            color: #1976d2;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #90caf9;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+        input[readonly] {
+            background: #f0f4f8;
+            color: #1976d2;
+            font-weight: bold;
         }
     </style>
+</head>
+<body>
+    <div class="form-box">
+        <div class="caption">Chuyển đổi chữ hoa/thường</div>
+        <form name="f1">
+            <input type="text" name="textBox" onblur="toChange()" placeholder="Nhập chuỗi để chuyển đổi">
+            <input type="text" name="resultBox" readonly placeholder="Kết quả chuyển đổi">
+        </form>
+    </div>
     <script>
-        window.onload = function(){
+        window.onload = function() {
             document.f1.textBox.focus();
         }
         function isUpper(char) {
             let code = char.charCodeAt(0);
             return code >= 65 && code <= 90;
         }
+        function isLetter(char) {
+            let code = char.charCodeAt(0);
+            return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+        }
         function toggleCase(char) {
             let code = char.charCodeAt(0);
+            if (!isLetter(char)) {
+                return "";
+            }
             if (isUpper(char)) {
                 return String.fromCharCode(code + 32);
             } else if (code >= 97 && code <= 122) {
@@ -31,7 +81,6 @@
             }
             return "";
         }
-
         function toChange() {
             let content = document.f1.textBox.value;
             let result = "";
@@ -41,11 +90,5 @@
             document.f1.resultBox.value = result;
         }
     </script>
-</head>
-<body>
-    <form action="" name="f1">  
-        <input type="text" name="textBox" onblur="toChange()">
-        <input type="text" name="resultBox">
-    </form>
 </body>
 </html>

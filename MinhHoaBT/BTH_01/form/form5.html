@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>form 5</title>
-    <script>
-        function toUpperCase(){
-            const textBox = document.getElementById("textBox");
-            textBox.value = textBox.value.toUpperCase();
-        }
-    </script>
+    <title>Chuyển thành chữ hoa</title>
     <style>
         body {
             display: flex;
@@ -17,16 +11,26 @@
             justify-content: center;
             height: 100vh;
             background-color: aqua;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
         #textBox {
             width: 300px;
             height: 40px;
             font-size: 18px;
             padding: 10px;
+            border: 1px solid #90caf9;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="textBox" onblur="toUpperCase()">
+    <input type="text" id="textBox" onblur="toUpperCase()" placeholder="Nhập chuỗi để chuyển thành chữ hoa">
+    <script>
+        function toUpperCase() {
+            const textBox = document.getElementById("textBox");
+            textBox.value = textBox.value.toUpperCase();
+        }
+    </script>
 </body>
 </html>
