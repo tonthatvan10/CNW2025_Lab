@@ -17,6 +17,18 @@
         $sql = "SELECT * FROM phongban";
         $result = mysqli_query($link, $sql);
 
+        $phongban = []; // Mảng lưu IDPB
+
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $phongban[] = $row;
+            }
+            mysqli_free_result($result);
+        } else {
+            // Ghi log lỗi nếu cần
+            error_log("Lỗi truy vấn phongban: " . mysqli_error($link));
+        }
+
         echo "<table border='1' width = '100%'>";
         echo "<caption>Danh sách phong ban</caption>";
         echo "<tr><th>IDPB</th><th>Tenpb</th><th>Mota</th><th>Xem nhan vien</th></tr>";

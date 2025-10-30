@@ -24,7 +24,20 @@
             <input type="text" name="Diachi" required><br><br>
 
             <label>IDPB:</label>
-            <input type="text" name="IDPB" required><br><br>
+            <select name="IDPB" required>
+            <option value="">-- Chọn phòng ban --</option>
+            <?php
+                if (!empty($sql)) {
+                    foreach ($phongban as $pb) {
+                        echo '<option value="' . htmlspecialchars($pb['IDPB']) . '">'
+                            . htmlspecialchars($pb['IDPB'])
+                            . '</option>';
+                    }
+                } else {
+                    echo '<option value="">Không có phòng ban</option>';
+                }
+            ?>
+        </select><br><br>
 
             <input type="submit" value="Thêm nhân viên">
     </form>
