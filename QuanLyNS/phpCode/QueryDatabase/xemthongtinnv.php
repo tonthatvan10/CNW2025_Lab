@@ -7,12 +7,13 @@
 </head>
 <body>
     <?php
-        session_start();
-        require_once("../DB/connectDatabase.php");
-
-        mysqli_select_db($link, $database);
+        require_once(__DIR__ . "/../DB/connectDatabase.php");
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        // mysqli_select_db($conn, $database);
         $sql = "SELECT * FROM nhanvien";
-        $result = mysqli_query($link, $sql);
+        $result = mysqli_query($conn, $sql);
 
         echo "<table border='1' width = '100%'>";
         echo "<caption>Danh sách nhân viên</caption>";

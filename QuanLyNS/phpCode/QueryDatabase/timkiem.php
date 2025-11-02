@@ -23,15 +23,17 @@
     </div>
 
     <?php
-    session_start();
-    require_once("../DB/connectDatabase.php");
+    require_once(__DIR__ . "/../DB/connectDatabase.php");
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $field = $_POST['timkiem'];
-        $noidung = mysqli_real_escape_string($link, $_POST['noidung']);
+        $noidung = mysqli_real_escape_string($conn, $_POST['noidung']);
 
         $sql = "SELECT * FROM nhanvien WHERE $field LIKE '%$noidung%'";
-        $result = mysqli_query($link, $sql);
+        $result = mysqli_query($conn, $sql);
         echo "<table border='1' width='100%'>";
         echo "<caption>Danh sách nhân viên</caption>";
         echo "<tr><th>IDNV</th><th>Hoten</th><th>IDPB</th><th>Diachi</th></tr>";
@@ -46,7 +48,7 @@
         echo "</table>";
         mysqli_free_result($result);
     }
-    mysqli_close($link);
+    // mysqli_close($conn);
 ?>
 </body>
 </html>

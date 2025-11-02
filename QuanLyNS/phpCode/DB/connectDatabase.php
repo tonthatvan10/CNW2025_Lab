@@ -5,10 +5,10 @@
     $database = "dulieu";
     $port = 3307;
 
-    $link = mysqli_connect($servername, $username, $password, $database, $port);
+    $conn  = mysqli_connect($servername, $username, $password, $database, $port);
 
     // Kiểm tra kết nối
-    if (!$link) {
+    if (!$conn) {
         die("Kết nối thất bại: " . mysqli_connect_error());
     }
 ?>

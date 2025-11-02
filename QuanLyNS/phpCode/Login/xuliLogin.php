@@ -31,7 +31,7 @@
         }
 
         // Lấy user theo username
-        $stmt = $link->prepare("SELECT * FROM admin WHERE username = ?");
+        $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -56,7 +56,7 @@
 }
 
         $stmt->close();
-        mysqli_close($link);
+        mysqli_close($conn);
     ?>
 </body>
 </html>

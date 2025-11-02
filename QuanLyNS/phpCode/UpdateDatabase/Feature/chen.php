@@ -1,47 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <form action="" method=""></form>
-    </div>
+<?php
+// === 1. KHỞI TẠO PHIÊN & KIỂM TRA ĐĂNG NHẬP ===
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-    <?php
-        require("../QueryDatabase/xemthongtinnv.php");
-        require("../QueryDatabase/xemthongtinpb.php");
-    ?>
-    <div>
-        <h2>Thêm nhân viên mới</h2>
-        <form action="capnhatNV.php" method="post">
-            <label>Họ tên:</label>
-            <input type="text" name="Hoten" required><br><br>
+if (!isset($_SESSION['username'])) {
+    echo "<script>alert('Vui lòng đăng nhập trước.'); window.location.href='../../index.php';</script>";
+    exit;
+}
 
-            <label>Địa chỉ:</label>
-            <input type="text" name="Diachi" required><br><br>
-
-            <label>IDPB:</label>
-            <select name="IDPB" required>
-            <option value="">-- Chọn phòng ban --</option>
-            <?php
-                if (!empty($sql)) {
-                    foreach ($phongban as $pb) {
-                        echo '<option value="' . htmlspecialchars($pb['IDPB']) . '">'
-                            . htmlspecialchars($pb['IDPB'])
-                            . '</option>';
-                    }
-                } else {
-                    echo '<option value="">Không có phòng ban</option>';
-                }
-            ?>
-        </select><br><br>
-
-            <input type="submit" value="Thêm nhân viên">
-    </form>
-    </div>
-    
-</body>
-</html>
+// === 2. NHÚNG FORM THÊM NHÂN VIÊN ===
+include(__DIR__ . "/../Form/formChen.php");

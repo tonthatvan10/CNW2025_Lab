@@ -7,15 +7,14 @@
 </head>
 <body>
     <?php
+        require_once(__DIR__ . "/../DB/connectDatabase.php");
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        require_once("../DB/connectDatabase.php");
 
-
-        mysqli_select_db($link, $database);
+        // mysqli_select_db($conn, $database);
         $sql = "SELECT * FROM phongban";
-        $result = mysqli_query($link, $sql);
+        $result = mysqli_query($conn, $sql);
 
         $phongban = []; // Mảng lưu IDPB
 
@@ -26,23 +25,27 @@
             mysqli_free_result($result);
         } else {
             // Ghi log lỗi nếu cần
-            error_log("Lỗi truy vấn phongban: " . mysqli_error($link));
+            error_log("Lỗi truy vấn phongban: " . mysqli_error($conn));
         }
 
-        echo "<table border='1' width = '100%'>";
-        echo "<caption>Danh sách phong ban</caption>";
-        echo "<tr><th>IDPB</th><th>Tenpb</th><th>Mota</th><th>Xem nhan vien</th></tr>";
-        while($row = mysqli_fetch_array($result)){
+        echo "<table border='1' width='100%'>";
+        echo "<caption>Danh sách phòng ban</caption>";
+        echo "<tr><th>IDPB</th><th>Tên phòng ban</th><th>Mô tả</th><th>Xem nhân viên</th></tr>";
+
+        foreach ($phongban as $row) {
             echo "<tr>";
-            echo "<td>".$row['IDPB']."</td>";
-            echo "<td>".$row['Tenpb']."</td>";
-            echo "<td>".$row['Mota']."</td>";
-            echo "<td><a href='xemthongtinnvpb.php?IDPB=".$row['IDPB']."'>XXX</a></td>";
+            echo "<td>{$row['IDPB']}</td>";
+            echo "<td>{$row['Tenpb']}</td>";
+            echo "<td>{$row['Mota']}</td>";
+            echo "<td class='p-2 text-center'>
+                    <a href='index.php?view=nvpb&IDPB={$row['IDPB']}' 
+                       class='text-blue-600 hover:underline'>XXX</a>
+                  </td>";
             echo "</tr>";
         }
+
         echo "</table>";
-        mysqli_free_result($result);
-        // mysqli_close($link);
+        // mysqli_close($conn);
 
     ?>
 </body>
